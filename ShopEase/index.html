@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================
+         BASIC SEO
+    ========================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        ShopEase - Online Shopping for Fashion, Electronics, Shoes & More
+    </title>
+
+    <meta name="description"
+        content="Shop the latest fashion, electronics, shoes, beauty products and more at ShopEase. Discover trending products, exclusive deals and a smooth online shopping experience.">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="author" content="ShopEase">
+
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- =========================
+         CANONICAL URL
+    ========================== -->
+
+    <link rel="canonical" href="https://www.shopease.com/">
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="ShopEase - Modern Online Shopping">
+
+    <meta property="og:description"
+        content="Discover fashion, electronics, shoes, beauty products and exclusive deals at ShopEase.">
+
+    <meta property="og:url" content="https://www.shopease.com/">
+
+    <meta property="og:image" content="https://www.shopease.com/images/og-image.jpg">
+
+    <meta property="og:site_name" content="ShopEase">
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="ShopEase - Modern Online Shopping">
+
+    <meta name="twitter:description" content="Shop fashion, electronics, shoes, beauty products and more at ShopEase.">
+
+    <meta name="twitter:image" content="https://www.shopease.com/images/og-image.jpg">
+
+
+    <!-- =========================
+         FAVICON
+    ========================== -->
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+
+    <!-- =========================
+         WEBSITE STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ShopEase",
+        "url": "https://www.shopease.com/",
+        "description": "Modern online shopping website for fashion, electronics, shoes, beauty products and more.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.shopease.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+
+    <!-- =========================
+         ORGANIZATION SCHEMA
+    ========================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ShopEase",
+        "url": "https://www.shopease.com/",
+        "logo": "https://www.shopease.com/images/logo.png"
+    }
+    </script>
+
+
+    <!-- =========================
+         BOOTSTRAP
+    ========================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- =========================
+         BOOTSTRAP ICONS
+    ========================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =========================
+         CUSTOM CSS
+    ========================== -->
+
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ======= TOAST CONTAINER ======= -->
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- ======= CART DRAWER ======= -->
+    <div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
+    <aside id="cartDrawer" class="cart-drawer" aria-label="Shopping Cart" role="dialog" aria-modal="true">
+        <div class="cart-drawer-header">
+            <h2 class="cart-title"><i class="bi bi-cart3"></i> Your Cart</h2>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="cart-drawer-body" id="cartBody">
+            <!-- Cart items rendered by JS -->
+        </div>
+        <div class="cart-drawer-footer" id="cartFooter">
+            <!-- Cart total rendered by JS -->
+        </div>
+    </aside>
+
+    <!-- ======= NAVBAR ======= -->
+    <header class="site-header" role="banner">
+        <nav class="navbar navbar-expand-lg site-navbar" id="mainNavbar" aria-label="Main navigation">
+            <div class="navbar-inner">
+                <!-- Logo -->
+                <a class="navbar-brand site-logo" href="#" aria-label="ShopEase Home">
+                    <div class="logo-icon" aria-hidden="true"><i class="bi bi-bag-heart-fill"></i></div>
+                    <span class="logo-text">ShopEase</span>
+                </a>
+
+                <!-- Hamburger -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu"
+                    aria-expanded="false" aria-controls="mobileMenu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <!-- Desktop Nav Links -->
+                <ul class="nav-links" role="list">
+                    <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+                    <li><a href="#popular-products" class="nav-link">Products</a></li>
+                    <li><a href="#categories" class="nav-link">Categories</a></li>
+                    <li><a href="#offer-banner" class="nav-link">Offers</a></li>
+                    <li><a href="#newsletter" class="nav-link">Contact</a></li>
+                </ul>
+
+                <!-- Nav Actions -->
+                <div class="nav-actions">
+                    <button class="nav-icon-btn search-toggle-btn" id="searchToggleBtn" aria-label="Toggle search"
+                        title="Search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="nav-icon-btn wishlist-btn" id="wishlistNavBtn" aria-label="View wishlist">
+                        <i class="bi bi-heart"></i>
+                        <span class="nav-badge" id="wishlistBadge" aria-label="0 items in wishlist">0</span>
+                    </button>
+                    <button class="nav-icon-btn cart-btn" id="cartNavBtn" aria-label="View cart">
+                        <i class="bi bi-bag"></i>
+                        <span class="nav-badge" id="cartBadge" aria-label="0 items in cart">0</span>
+                    </button>
+                    <a href="#" class="login-btn" aria-label="Login to your account">
+                        <i class="bi bi-person"></i> Login
+                    </a>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="navbar-search-bar" id="navbarSearchBar" aria-hidden="true">
+                <div class="navbar-search-inner">
+                    <i class="bi bi-search search-bar-icon"></i>
+                    <input type="search" id="navSearchInput" placeholder="Search products, categories..."
+                        aria-label="Search site">
+                    <button class="search-bar-close" id="searchBarClose" aria-label="Close search"><i
+                            class="bi bi-x"></i></button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <ul class="mobile-nav-links" role="list">
+                <li><a href="#home" class="mobile-nav-link active"><i class="bi bi-house"></i> Home</a></li>
+                <li><a href="#popular-products" class="mobile-nav-link"><i class="bi bi-grid"></i> Products</a></li>
+                <li><a href="#categories" class="mobile-nav-link"><i class="bi bi-tags"></i> Categories</a></li>
+                <li><a href="#offer-banner" class="mobile-nav-link"><i class="bi bi-percent"></i> Offers</a></li>
+                <li><a href="#newsletter" class="mobile-nav-link"><i class="bi bi-envelope"></i> Contact</a></li>
+                <li><a href="#" class="mobile-nav-link mobile-login"><i class="bi bi-person"></i> Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ======= MAIN CONTENT ======= -->
+    <main id="mainContent">
+        <div class="page-container">
+            <!-- Two-column outer: Left (Hero + Categories) | Right (Products + Sidebar) -->
+            <div class="page-layout">
+
+                <!-- ======= LEFT COLUMN ======= -->
+                <div class="layout-left">
+
+                    <!-- HERO SECTION -->
+                    <section class="hero-section" id="home" aria-labelledby="heroTitle">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <span class="hero-badge" aria-hidden="true"><i class="bi bi-lightning-charge-fill"></i>
+                                    New Arrivals 2026</span>
+                                <h1 id="heroTitle">
+                                    Discover Fashion, Electronics
+                                    <br>
+                                    <span class="hero-title-accent">
+                                        & More at ShopEase
+                                    </span>
+                                </h1>
+                                <p class="hero-desc">
+    Shop the latest fashion, electronics, shoes, beauty products
+    and more at ShopEase. Discover quality products, trending
+    collections and exclusive online shopping deals.
+</p>
+                                <div class="hero-actions">
+                                    <a href="#popular-products" class="btn-primary-hero" aria-label="Shop now">
+                                        <i class="bi bi-bag-check"></i> Shop Now
+                                    </a>
+                                    <a href="#categories" class="btn-secondary-hero" aria-label="Explore categories">
+                                        Explore Categories <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                                <div class="hero-stats" aria-label="Shopping statistics">
+                                    <div class="hero-stat">
+                                        <span class="hero-stat-num">50K+</span>
+                                        <span class="hero-stat-label">Products</span>
+                                    </div>
+                                    <div class="hero-stat-divider" aria-hidden="true"></div>
+                                    <div class="hero-stat">
+                                        <span class="hero-stat-num">25K+</span>
+                                        <span class="hero-stat-label">Happy Customers</span>
+                                    </div>
+                                    <div class="hero-stat-divider" aria-hidden="true"></div>
+                                    <div class="hero-stat">
+                                        <span class="hero-stat-num">4.9★</span>
+                                        <span class="hero-stat-label">Avg Rating</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-visual" aria-hidden="true">
+                                <div class="hero-img-wrapper">
+                                    <div class="hero-bg-circle hero-bg-circle-1"></div>
+                                    <div class="hero-bg-circle hero-bg-circle-2"></div>
+                                    <div class="hero-img-frame">
+                                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=460&fit=crop&crop=center"
+                                            alt="Fashion shopping showcase" class="hero-main-img" loading="eager">
+                                    </div>
+                                    <!-- Floating Cards -->
+                                    <div class="hero-float-card hero-float-rating">
+                                        <div class="float-card-icon"><i class="bi bi-star-fill"></i></div>
+                                        <div class="float-card-info">
+                                            <span class="float-card-num">4.9/5</span>
+                                            <span class="float-card-label">Customer Rating</span>
+                                        </div>
+                                    </div>
+                                    <div class="hero-float-card hero-float-delivery">
+                                        <div class="float-card-icon"><i class="bi bi-truck"></i></div>
+                                        <div class="float-card-info">
+                                            <span class="float-card-num">Free</span>
+                                            <span class="float-card-label">Delivery</span>
+                                        </div>
+                                    </div>
+                                    <button class="hero-float-shopbtn" aria-label="Shop now">
+                                        Shop Now <i class="bi bi-arrow-right-short"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CATEGORIES SECTION -->
+                    <section class="categories-section" id="categories" aria-labelledby="categoriesTitle">
+                        <div class="section-header">
+                            <div>
+                                <h2 class="section-title" id="categoriesTitle">Shop By Category</h2>
+                                <p class="section-subtitle">Explore our wide range of product categories</p>
+                            </div>
+                            <a href="#" class="section-view-all" aria-label="View all categories">View All <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="categories-grid" id="categoriesGrid" role="list">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </section>
+
+                </div>
+                <!-- END LEFT COLUMN -->
+
+                <!-- ======= RIGHT COLUMN ======= -->
+                <div class="layout-right">
+
+                    <!-- POPULAR PRODUCTS -->
+                    <section class="products-section" id="popular-products" aria-labelledby="productsTitle">
+                        <div class="section-header">
+                            <div>
+                                <h2 class="section-title" id="productsTitle">Popular Products</h2>
+                                <p class="section-subtitle">Trending items loved by customers</p>
+                            </div>
+                            <a href="#" class="section-view-all" aria-label="View all products">View All <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+
+                        <!-- Product Search -->
+                        <div class="product-search-wrapper" role="search">
+                            <label for="productSearchInput" class="visually-hidden">Search products</label>
+                            <div class="product-search-box">
+                                <i class="bi bi-search product-search-icon" aria-hidden="true"></i>
+                                <input type="search" id="productSearchInput" class="product-search-input"
+                                    placeholder="Search products..." aria-label="Search products">
+                            </div>
+                        </div>
+
+                        <!-- Category Filters -->
+                        <div class="filter-pills" role="group" aria-label="Product category filters" id="filterPills">
+                            <button class="filter-pill active" data-filter="All" aria-pressed="true">All</button>
+                            <button class="filter-pill" data-filter="Fashion" aria-pressed="false">Fashion</button>
+                            <button class="filter-pill" data-filter="Electronics"
+                                aria-pressed="false">Electronics</button>
+                            <button class="filter-pill" data-filter="Shoes" aria-pressed="false">Shoes</button>
+                            <button class="filter-pill" data-filter="Beauty" aria-pressed="false">Beauty</button>
+                            <button class="filter-pill" data-filter="Books" aria-pressed="false">Books</button>
+                        </div>
+
+                        <!-- Products Grid -->
+                        <div class="products-grid" id="productsGrid" aria-label="Products listing">
+                            <!-- Rendered by JS -->
+                        </div>
+
+                        <!-- Empty State -->
+                        <div class="empty-state" id="emptyState" aria-live="polite" hidden>
+                            <div class="empty-icon"><i class="bi bi-search"></i></div>
+                            <h3 class="empty-title">No products found</h3>
+                            <p class="empty-desc">Try another search term or browse a different category.</p>
+                        </div>
+                    </section>
+
+                    <!-- OFFER BANNER -->
+                    <section class="offer-banner" id="offer-banner" aria-labelledby="offerTitle">
+                        <div class="offer-content">
+                            <div class="offer-text">
+                                <span class="offer-tag" aria-hidden="true">Limited Time</span>
+                                <h2 class="offer-title" id="offerTitle">Get Up To<br><span class="offer-percent">50%
+                                        OFF</span></h2>
+                                <p class="offer-desc">Get the best promotional deals and special offers on trending
+                                    products. Don't miss out!</p>
+                                <button class="offer-btn" id="offerShopBtn" aria-label="Shop sale items">
+                                    <i class="bi bi-lightning-charge-fill"></i> Shop Sale
+                                </button>
+                            </div>
+                            <div class="offer-graphic" aria-hidden="true">
+                                <div class="offer-big-percent">%</div>
+                                <div class="offer-circle offer-circle-1"></div>
+                                <div class="offer-circle offer-circle-2"></div>
+                                <div class="offer-badge-img">
+                                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=180&h=180&fit=crop"
+                                        alt="" class="offer-product-img">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- WHY CHOOSE US -->
+                    <section class="why-section" id="why-choose-us" aria-labelledby="whyTitle">
+                        <div class="section-header">
+                            <div>
+                                <h2 class="section-title" id="whyTitle">Why Choose Us?</h2>
+                                <p class="section-subtitle">We make your shopping experience exceptional</p>
+                            </div>
+                        </div>
+                        <div class="why-grid" id="whyGrid" role="list">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </section>
+
+                    <!-- NEWSLETTER -->
+                    <section class="newsletter-section" id="newsletter" aria-labelledby="newsletterTitle">
+                        <div class="newsletter-inner">
+                            <div class="newsletter-icon" aria-hidden="true"><i
+                                    class="bi bi-envelope-open-heart-fill"></i></div>
+                            <h2 class="newsletter-title" id="newsletterTitle">Subscribe to our Newsletter</h2>
+                            <p class="newsletter-desc">Subscribe to receive updates about new products, special offers,
+                                and exclusive deals directly in your inbox.</p>
+                            <form class="newsletter-form" id="newsletterForm" novalidate
+                                aria-label="Newsletter subscription form">
+                                <div class="newsletter-input-group">
+                                    <label for="newsletterEmail" class="visually-hidden">Email address</label>
+                                    <input type="email" id="newsletterEmail" class="newsletter-input"
+                                        placeholder="Enter your email address..." aria-required="true"
+                                        autocomplete="email">
+                                    <button type="submit" class="newsletter-btn" aria-label="Subscribe to newsletter">
+                                        <i class="bi bi-send-fill"></i> Subscribe
+                                    </button>
+                                </div>
+                                <p class="newsletter-privacy"><i class="bi bi-shield-check"></i> We respect your
+                                    privacy. No spam, ever.</p>
+                            </form>
+                        </div>
+                    </section>
+
+                </div>
+                <!-- END RIGHT COLUMN -->
+
+            </div>
+            <!-- END PAGE LAYOUT -->
+        </div>
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="site-footer" id="footer" aria-label="Site footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo" aria-label="ShopEase home">
+                        <div class="footer-logo-icon" aria-hidden="true"><i class="bi bi-bag-heart-fill"></i></div>
+                        <span>ShopEase</span>
+                    </a>
+                    <p class="footer-brand-desc">ShopEase is a modern e-commerce platform offering quality products,
+                        exclusive deals, and a smooth shopping experience for everyone.</p>
+                    <div class="footer-social" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="Follow on Facebook"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Follow on Instagram"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Follow on Twitter / X"><i
+                                class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-link" aria-label="Follow on YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Shop Links -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Shop</h3>
+                    <ul class="footer-links" role="list">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#popular-products" class="footer-link">Products</a></li>
+                        <li><a href="#categories" class="footer-link">Categories</a></li>
+                        <li><a href="#offer-banner" class="footer-link">Offers</a></li>
+                        <li><a href="#offer-banner" class="footer-link">Deals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Links -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Support</h3>
+                    <ul class="footer-links" role="list">
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="#" class="footer-link">Support Center</a></li>
+                        <li><a href="#" class="footer-link">Returns Policy</a></li>
+                        <li><a href="#" class="footer-link">Shipping Info</a></li>
+                        <li><a href="#newsletter" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Contact</h3>
+                    <ul class="footer-contact-list" role="list">
+                        <li>
+                            <i class="bi bi-telephone-fill footer-contact-icon" aria-hidden="true"></i>
+                            <a href="tel:+11231001789" class="footer-link">+1 123 100 178</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope-fill footer-contact-icon" aria-hidden="true"></i>
+                            <a href="mailto:support@shopease.com" class="footer-link">support@shopease.com</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-globe2 footer-contact-icon" aria-hidden="true"></i>
+                            <a href="#" class="footer-link">www.shopease.com</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-geo-alt-fill footer-contact-icon" aria-hidden="true"></i>
+                            <span class="footer-link">123 Main Street, NY</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copy">Copyright &copy; 2026 <span class="footer-brand-name">ShopEase</span>. All rights
+                    reserved.</p>
+                <div class="footer-legal" role="list">
+                    <a href="#" class="footer-legal-link" role="listitem">Privacy Policy</a>
+                    <a href="#" class="footer-legal-link" role="listitem">Terms &amp; Conditions</a>
+                    <a href="#" class="footer-legal-link" role="listitem">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
